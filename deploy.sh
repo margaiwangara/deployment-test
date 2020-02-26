@@ -3,7 +3,8 @@
 set -e
 
 sudo apt-get install -y lftp
+mkdir public
 
 # deployment via ftp upload, using ftps
 lftp -c "set ftps:initial-prot '';set ftp:ssl-force true:set ftp:ssl-protect-data true;
-        open ftp://$FTP_USER:$FTP_PASS@$FTP_HOST:21; mirror -eRv deployment-test .; quit;"
+        open ftp://$FTP_USER:$FTP_PASS@$FTP_HOST:21; mirror -eRv public .; quit;"
