@@ -1,0 +1,22 @@
+{
+  "name": "deployment-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "SET NODE_ENV=production && node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "Margai Wangara",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.0.1",
+    "nodemon": "^2.0.2"
+  }
+}
