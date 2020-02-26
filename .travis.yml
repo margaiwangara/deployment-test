@@ -7,9 +7,11 @@ cache:
     - node_modules
   yarn: true
 
-deploy:
-  - provider: script
-    script: bash deploy.sh
-    skip_cleanup: true
-    on:
-      branch: master
+after_success:
+  - find . -type d \( -path "./.*" -o -path "./node_modules" \) -prune -o -name "*" -print -exec curl --ftp-create-dirs -T {} ftp://${FTP_HOST}/dir/ --user ${FTP_USER}:${FTP_PASS} \;
+# deploy:
+#   - provider: script
+#     script: bash deploy.sh
+#     skip_cleanup: true
+#     on:
+#       branch: master
